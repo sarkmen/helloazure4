@@ -23,7 +23,7 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
-            return redirect('blog/post_detail.html', post.pk)
+            return redirect(post_detail, post.pk)
     else:
         form = PostForm()
     return render(request, 'blog/post_form.html', {
